@@ -15,9 +15,32 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("user",new User());
+
         return "login";
     }
+
+    @PostMapping("/login")
+    public String home(@ModelAttribute("user")User user,Model model){
+        Optional<User> tmpUser = userService.getUserByUsername(user.getUsername());
+
+        if (tmpUser.isEmpty()) {
+
+            return "login";
+        }
+
+        // Check if the password matches
+        if (!tmpUser.get().getPassword().equals(user.getPassword())) {
+
+            return "login";
+        }
+
+        // Add the user to the model and redirect to the homepage
+        model.addAttribute("user", tmpUser.get());
+        return "index";
+    }
+
 
     @GetMapping("/signup")
     public String signupForm() {
