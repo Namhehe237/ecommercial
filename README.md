@@ -72,9 +72,9 @@ INSERT INTO categories (name) VALUES
 
 -- Insert sample products
 INSERT INTO products (name, description, price, image_url, stock, category_id) VALUES
-('Java Programming Book', 'A comprehensive guide to Java programming.', 49.99, '/images/java_book.jpg', 50, 1),
-('Smartphone', 'Latest model with 5G support.', 699.99, '/images/smartphone.jpg', 100, 2),
-('T-Shirt', 'Comfortable cotton t-shirt.', 19.99, '/images/tshirt.jpg', 200, 3);
+('Java Programming Book', 'A comprehensive guide to Java programming.', 49.99, 'https://images-na.ssl-images-amazon.com/images/I/61tv9vyDz2L.jpg', 50, 1),
+('Smartphone', 'Latest model with 5G support.', 699.99, 'https://cdn.tgdd.vn/Products/Images/42/329150/iphone-16-pro-max-tu-nhien-thumb-600x600.jpg', 100, 2),
+('T-Shirt', 'Comfortable cotton t-shirt.', 19.99, 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg', 200, 3);
 
 -- Insert sample cart items (for user with id 1)
 INSERT INTO cart_items (user_id, product_id, quantity) VALUES
