@@ -170,7 +170,7 @@
         <a href="/products">Shop Now</a>
         <a href="/cart">View Cart</a>
         Hello, <span th:text="${user.username}">Username</span>!
-        <a th:href="@{/}"><button>Log Out</button></a>
+        <a th:href="@{/}">Log Out</a>
     </span>
 
     <!-- Links for users not logged in -->
@@ -205,11 +205,13 @@
     </div>
 </section>
 
+<span th:if="${user == null}" class="user-name">
 <section class="cta-section">
     <h2>Join Our Community</h2>
     <p>Sign up now to receive exclusive discounts and the latest product updates.</p>
     <a href="/signup" class="btn btn-large">Sign Up</a>
 </section>
+</span>
 
 <!-- Footer -->
 <footer>
