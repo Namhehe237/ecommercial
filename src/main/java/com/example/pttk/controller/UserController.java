@@ -47,6 +47,11 @@ public class UserController {
         return "signup";
     }
 
+//    @PostMapping("/signup")
+//    public String signupForm() {
+//        return "index";
+//    }
+
     // Xử lý yêu cầu POST từ form đăng ký
     @PostMapping("/signup")
     public String signup(@ModelAttribute User user, Model model) {
