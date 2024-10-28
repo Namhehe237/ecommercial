@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Checkout</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        /* Link Styles */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            width: 100%;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="tel"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus {
+            border-color: #007bff;
+        }
+
+        /* Radio Button Styles */
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Checkout</h1>
+<form action="/orders/checkout" method="post">
+    <h2>Shipping Information</h2>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <h2>Payment Method</h2>
+    <label>
+        <input type="radio" name="paymentMethod" value="Credit Card" required> Credit Card
+    </label>
+    <label>
+        <input type="radio" name="paymentMethod" value="PayPal" required> PayPal
+    </label>
+
+    <button type="submit" class="btn">Place Order</button>
+</form>
+</body>
+</html>

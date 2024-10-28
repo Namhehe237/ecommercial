@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Product List */
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 250px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-item h3 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Our Products</h1>
+<div class="product-list">
+    <div th:each="product : ${products}" class="product-item">
+        <img th:src="${product.imageUrl}" alt="Product Image">
+        <h3 th:text="${product.name}">Product Name</h3>
+        <p th:text="${product.description}">Product Description</p>
+        <p>Price: $<span th:text="${product.price}"></span></p>
+        <a th:href="@{/products/{id}(id=${product.id})}" class="btn">View Details</a>
+        <a th:href="@{/cart/add/{id}(id=${product.id})}" class="btn">Add to Cart</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 E-commerce Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
